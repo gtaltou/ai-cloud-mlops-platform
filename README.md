@@ -139,6 +139,7 @@ Agentic Financial Planner
 
 ## Architecture Principles
 
+
 ### API First
 
 All services expose well-defined APIs.
@@ -160,6 +161,45 @@ Metrics, traces and logs are first-class citizens.
 Avoid unnecessary vendor lock-in.
 
 ---
+
+
+```mermaid
+flowchart TB
+
+    User["User"]
+
+    Frontend["Next.js"]
+
+    API["FastAPI"]
+
+    Agents["Agent Platform"]
+
+    RAG["RAG Platform"]
+
+    MCP["MCP Gateway"]
+
+    Models["Foundation Models"]
+
+    Data["Aurora / Redis / Vectors"]
+
+    Obs["LangFuse / Grafana / CloudWatch"]
+
+    User --> Frontend
+
+    Frontend --> API
+
+    API --> Agents
+
+    API --> RAG
+
+    API --> MCP
+
+    API --> Models
+
+    API --> Data
+
+    API --> Obs
+```
 
 ## Current Status
 
